@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="myModule">
+	<head>
+		<script src="Script/angular.js"></script>>
+		<script src="Script.js"></script>
+
+	</head>
+
+	<body>
+		<div ng-controller="myController">
+			<div>
+				<img ng-src="{{ country.flag }}" alt="{{ country.name + ' Flag' }}" style="height:100px; width:300px" />
+			</div>
+			
+			<input type="text" ng-model="greeting" />
+			<br/> <br />
+				{{ message }}
+			<br/> <br />
+				{{ greeting }}
+			
+			<table>
+				<tr>
+					<td>
+						Name
+					</td>
+					<td>
+						<input type="text" ng-model="country.name">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Capital
+					</td>
+					<td>
+						<input type="text" ng-model="country.capital">
+					</td>
+				</tr>
+			</table>
+			<br />
+
+			<table>
+				<tr>
+					<td>
+						Name
+					</td>
+					<td>
+						{{ country.name }}
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Capital
+					</td>
+					<td>
+						{{ country.capital }}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>>

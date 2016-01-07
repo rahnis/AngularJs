@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="C:\Users\RAHUL\Desktop\AngularJS\Script\angular.js"></script>
+	<script src="Script.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body ng-app = "myModule">
+	<div ng-controller="myController" >
+		<input type="text" ng-model="searchText" placeholder="Search FirstName & salary" />
+		<br/><br/>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of Birth</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | filter:search">
+					<td> {{employee.firstName }}  {{employee.lastName }} </td>
+					<td> {{employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+					<td> {{employee.gender }} </td>
+					<td> {{employee.salary | number:"2" }} </td>			
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

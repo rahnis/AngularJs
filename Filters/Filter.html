@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="C:\Users\RAHUL\Desktop\AngularJS\Script\angular.js"></script>
+	<script src="Script.js"></script>
+	<link rel="stylesheet" href="Style.css">
+</head>
+<body ng-app = "myModule">
+	<div ng-controller="myController" >
+		<table>
+			Rows to Display<input type="number" step="1" min="0" max="4" ng-model="rowLimit" />
+			<br />
+			<thead>
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>Date of Birth</th>
+					<th>Gender</th>
+					<th>Salary (number)</th>
+					<th>Salary (currency)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | limitTo:rowLimit">
+					<td> {{employee.firstName | uppercase}} </td>
+					<td> {{employee.lastName | uppercase}} </td>
+					<td> {{employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+					<td> {{employee.gender | lowercase}} </td>
+					<td> {{employee.salary | number:2}} </td>
+					<td> {{employee.salary | currency:"Rs":1}} </td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>>
