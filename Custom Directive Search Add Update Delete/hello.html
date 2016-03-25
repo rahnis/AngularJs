@@ -1,0 +1,55 @@
+<div>
+    
+    <div class="row col-md-8">
+<table class="table table-bordered">
+    <label for="text"><strong>Search</strong></label>
+        <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
+	<thead><tr>
+		<th>Name</th>
+		<th>Employees</th>
+		<th>Head Office</th>
+		<th>Update Data</th>
+        <th>Delete Row</th>
+	</tr></thead>
+    <tbody>
+        <tr ng-repeat="cmp in companies  | filter: searchKeyword ">
+            <td>{{cmp.name}}</td>
+            <td>{{cmp.employees}}</td>
+            <td>{{cmp.headoffice}}</td>
+            <td><button  class="btn btn-info" ng-click="edit($index)">Edit</button></td>
+            <td><button  class="btn btn-danger" ng-click="delete($index)">Delete</button></td>
+	   </tr>
+    </tbody>
+</table>
+    </div>
+    
+    <div class="container">
+    <form name="frm"  class="row col-md-6" class="form-horizontal" role="form" novalidate>
+        
+        <div >
+
+            <label for="text">Name : </label>
+                <input  type="text" name="fname" placeholder="Full Name required" ng-model="cmp.name" required>
+                <span>{{frm.fname.$valid}}</span>
+            </div>
+        
+        <div>
+            <label for="phn">Employees</label>
+            <input type="number" id="emp" name="employee" ng-model="cmp.employees" ng-maxlength=10 placeholder="number of Employees required" required>
+            <span ng-show="frm.phone.$invalid">
+            <span>{{frm.phone.$valid}}</span>
+        </div> 
+
+        <div>
+            <label for="lname">Headoffice</label>
+            <input type="text" name="headoffice" ng-model="cmp.headoffice" placeholder="headoffice Required" required>
+            <span>{{frm.lname.$valid}}</span>
+        </div>
+        
+
+            <input type="submit" value="Submit" class="btn btn-success" ng-click="addRow(cmp)">
+        </form>
+        </div>
+
+    
+    </div>

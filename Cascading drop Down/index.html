@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <link data-require="ui-grid@3.0.7" data-semver="3.0.7" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.css" />
+    <script data-require="ui-grid@3.0.7" data-semver="3.0.7" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.js"></script>
+    <script data-require="bootstrap@~3.3.5" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="app.js"></script>
+    <script src="app.css"></script>
+</head>
+
+<body ng-controller="myctrl">
+    <div class="container">
+        <div id="grid1" ui-grid="gridOptions" class="gridStyle" ui-grid-edit></div>
+
+        <form name="frm" role="form" novalidate>
+
+            <label for="text">First Name</label>
+                <input type="text" name="fname" placeholder="fname Required" ng-model="emp.fname" required>
+                <span>{{frm.fname.$valid}}</span>
+
+        <div>
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" ng-model="emp.lname" placeholder="lname Required" required>
+            <span>{{frm.lname.$valid}}</span>
+        </div>
+        <div>
+            <label for="radio">Gender</label>
+            <input type="radio" id="radio" name="gender" value="male" ng-model="emp.gender"> Male
+            <input type="radio" name="gender" value="female" ng-model="emp.gender"> Female
+        </div>
+        <div>
+            <label for="dept">Department</label>
+            <input type="text" id="dept" name="dept" ng-model="emp.dept" required>
+            <span>{{frm.dept.$valid}}</span>
+        </div>
+        <div>
+            <label for="phn">Phone</label>
+            <input type="number" id="phn" name="phone" ng-model="emp.phone" ng-maxlength=10 ng-minlength=10 placeholder="Phone" required>
+            <span ng-show="frm.phone.$invalid">
+            <span>{{frm.phone.$valid}}</span>
+        </div>            
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" ng-model="emp.email" required>
+            <span>{{frm.email.$valid}}</span>
+        </div>
+        <div>
+            <label for="salary">Salary</label>
+            <input type="number" name="sal" ng-model="emp.sal">
+        </div>
+            
+            
+            <select ng-model="country" ng-options="country.name for country in countries" ng-change="updateCountry()">
+      <option value="">Select country</option>
+    </select>
+    <br>
+    <select ng-model="state" ng-options="state.name for state in availableStates" ng-change="updateState()">
+      <option value="">Select state</option>
+    </select>
+    <br>
+    Country: {{country}}
+    <br>
+    State: {{state}}
+            
+            
+            <div>
+                Address
+                <div>
+                    <textarea name="adr" rows="2" cols="22" ng-model="emp.adr">
+
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <input type="submit" value="Submit" class="btn btn-success" ng-click="addRow(emp)">
+            <input type="submit" value="Update" class="btn btn-info" ng-click="update(emp)">
+        </form>
+    </div>
+</body>
+
+</html>
+
