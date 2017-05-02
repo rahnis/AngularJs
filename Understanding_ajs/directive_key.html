@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html ng-app xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div>
+        <input ng-init="x=0" ng-keyup="x = x + 1" /> {{x}}
+        <br />
+        <input ng-init="y=0" ng-keydown="y = y + 1" /> {{y}}
+        <br />
+        <input ng-init="z=0" ng-keypress="z = z + 1"/> {{z}}
+        <br />
+        <input type="checkbox" ng-model="check" />
+        <textarea ng-disabled="check"></textarea>
+    </div>
+</body>
+</html>

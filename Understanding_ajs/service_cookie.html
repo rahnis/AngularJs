@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.js"></script>
+    <script>
+        var myApp = angular.module('myApp', ['ngCookies']);
+        myApp.controller('x', function ($scope, $cookies) {
+            $scope.initially = 'maruti';
+            $scope.setCookiesValue = function () {
+                $cookies.test = $scope.initially;
+            };
+            $scope.getCookiesValue = function () {
+                return $cookies.test;
+            };
+        });
+
+    </script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="x">
+        Cookie Current Value: {{getCookiesValue()}} <br />
+        <input ng-model="initially"/>
+        <button ng-click="setCookiesValue()">Update Cookie</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+
+        var myModule = angular.module('myApp', []);
+        
+        myModule.controller('aa', function ($scope) {
+            $scope.div = ['div1', 'div2', 'div3'];
+            $scope.selectedDiv = $scope.div[0];
+        });
+
+    </script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="aa" >
+        <select ng-model="selectedDiv" ng-options="item for item in div"></select>
+        You Selected = {{selectedDiv}}
+        <hr />
+
+        <div ng-switch="selectedDiv">
+            <div style="border:1px solid black" ng-switch-when="div1">I am in div 1</div>
+            <div style="border:1px solid black" ng-switch-when="div2">I am in div 2</div>
+            <div style="border:1px solid black" ng-switch-when="div3">I am in div 3</div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <style>
+        .changeColor{
+            color:blue;
+        }
+        .changeSize{
+            font-size:30px;
+        }
+        .italic{
+            font-style:italic;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p ng-class="style">Hello From Rahul...!</p><br />
+        <input ng-model="style" />
+
+        <p ng-class="{changeColor:a, changeSize:b, italic:c}">Hello From Rahul...!</p><br />
+        <input type="checkbox" ng-model="a" /> Color <br />
+        <input type="checkbox" ng-model="b" /> Size <br />
+        <input type="checkbox" ng-model="c" /> Italic <br />
+
+    </div>
+</body>
+</html>

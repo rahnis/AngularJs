@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var myModule = angular.module('myModule', []);
+        myModule.controller('z', function ($scope, $filter) {
+            $scope.cars = [
+                { carId: 100, carName: 'Santro' },
+                { carId: 105, carName: 'I10' },
+                { carId: 110, carName: 'AUDI' },
+                { carId: 101, carName: 'BMW' },
+                { carId: 103, carName: 'Verna' }
+            ];
+            $scope.car1 = $scope.cars;
+
+            $scope.$watch('search', function (val) {
+                $scope.cars = $filter('filter')($scope.car1, val);
+            });
+        });
+
+    </script>
+</head>
+<body ng-app="myModule">
+     <div ng-controller="z">
+         <input ng-model="search" />
+         <table>
+             <tr ng-repeat="car in cars">
+                 <td>{{car.carId}}</td>
+                 <td>{{car.carName}}</td>
+             </tr>
+         </table>
+     </div>
+</body>
+</html>

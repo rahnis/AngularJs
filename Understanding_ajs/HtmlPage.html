@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html ng-app="AuthorApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <script src="Author.js"></script>
+</head>
+<body>
+    <div ng-controller="MyController">
+        <ul>
+            <li ng-repeat="author in authors">
+                {{author.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

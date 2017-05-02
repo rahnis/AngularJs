@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var myModule = angular.module('myAppInc', []);
+
+        myModule.controller('inc', function ($scope) {
+            $scope.tempaltePages = [
+                {
+                    temp: 'firstPage', url: 'directive_class.html'
+                },
+                {
+                    temp: 'secondPage', url: 'directive_key.html'
+                }
+            ];
+
+            $scope.tempPage = $scope.tempaltePages[0];
+        });
+
+    </script>
+
+</head>
+<body ng-app="myAppInc">
+    <div ng-controller="inc">
+        <select ng-model="tempPage" ng-options="p.temp for p in tempaltePages">
+            <option value="">(Empty)</option>
+        </select>
+        <div ng-include="tempPage.url"></div>
+    </div>
+</body>
+</html>
